@@ -12,7 +12,7 @@ public class Main {
 
       System.out.print("What's your name? ");
       String input = r.readLine();
-      
+
       while (true) {
         System.out.print("How old are you?");
         String input_age = r.readLine();
@@ -21,6 +21,18 @@ public class Main {
           System.out.println("You have passed away from being too old.....");
         } else {
           newPlayer.age = age;
+          break;
+        }
+      }
+
+       while (true) {
+        System.out.print("What is your starting intellect?");
+        String input_intellect = r.readLine();
+        int intellect = Integer.parseInt(input_intellect);
+        if (intellect>15){
+          System.out.println("You do not have enough experience to put any more into Intellect (15 Max Starting Intellect)");
+        } else {
+          newPlayer.intellect = intellect;
           break;
         }
       }
@@ -42,6 +54,9 @@ class Character {
   public int agility;
   public int charisma;
   public int willpower;
+  public int heritage; 
+  public static final int[] LEVEL_REQUIREMENTS = new int[] {60, 200, 400, 1000, 2000};
+  public int health;
 
   public void Speak() {
     System.out.println("My name is " + name);
